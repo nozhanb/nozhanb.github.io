@@ -1,0 +1,423 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media screen and (min-width: 950px) {
+    html {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/*GLOBAL PARAMETER*/
+
+h3{
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  padding: 100px;
+  margin: 0px;
+}
+
+/******************/
+
+/*NAVIGATION RIBBON*/
+
+.navigation{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: #2E2B2B;
+  height: 75px;
+}
+
+.navigation1{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: #2E2B2B;
+  list-style: none;
+}
+
+.navigation2{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  background: #2E2B2B;
+/*  margin: 0;
+*/  list-style: none;
+  width: 100%;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1.5em;
+  color: white;
+}
+
+.navigation a:hover {
+  background: #000;
+}
+
+/*****************/
+
+/*BACKGROUND MOVIE/GIF SECTION*/
+
+/*.bodyTitle{
+  text-align: center;
+  background-color: #1f2d41;
+  color: white;
+  padding-top: 30px;  
+  padding-bottom: 100px;
+  font-size: 35px;
+}*/
+
+.bodyTitle{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bodyTitle h1{
+  text-align: center;
+  z-index: 1;
+  color: white;
+  font-size: 45px;
+}
+
+.gifContainer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.gifContainer img {
+  width: 100%;
+}
+
+.colorOverlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #1f2d41;
+  width:100%;
+  height: 100vh;
+  opacity: 0.5;
+}
+
+/*****************/
+
+/*PERSONAL/MY IMAGE SECTION*/
+.imgSection{
+  background-color: #1f2d41;
+  padding-top: 100px;
+}
+
+img.myImage{
+  /*padding-left: 100px; if you activate this line the image becomes oval like an egg.*/
+  border-radius: 50%;
+  width:200px;
+  height:200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/******************/
+
+/*RIGHTS SECTION*/
+
+.rightBlock{
+  background-color: #1f2d41;
+  /*height:20px;*/
+  margin:0px;
+}
+
+.rightBlock h5{
+  color: white;
+  font-size:10px;
+  margin: 0px;
+  padding: 2px;
+  padding-left: 5px;
+}
+
+.rightBlock a {
+  text-decoration: none;
+  color: gold;
+}
+/****************/
+
+/*NAME SECTION*/
+
+.nameSection{
+  background-color: #1f2d41;
+  font-size: 0px;
+  /*border:5px solid red;*/
+}
+
+.nameSection h1{
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0px;
+}
+
+.nameSection h2{
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0px;
+}
+
+/*****************/
+
+/*PROJECT SECTION*/
+
+.projectSection h2{
+  padding-top: 120px;
+  padding-bottom: 50px;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  margin: 0px; /*removing this line will add some margin to the top of the container!*/
+}
+
+.projectSection{
+  background-color: #1f2d41;
+  font-size: 0px;
+}
+
+
+.imgProj{
+  height:250px;
+  width:50%;
+  border-radius: 50%;
+  /*object-fit: contain;*/
+}
+
+.projTable{
+  display:table;
+  border-collapse: separate;
+  border-spacing: 50px;
+}
+
+.projRow{
+  display: table-row;
+}
+
+.cell {
+  display:table-cell;
+  padding:0px;
+  width: 33.33%;
+  text-align: center;
+  font-size: 30px; /*This will remove the issue of the gap between image and the bottom of the container.*/
+}
+
+/*First row */
+
+#leftCell p{
+  color: white;
+  padding-right: 20px; 
+}
+
+#leftCell{
+  text-align: right;
+}
+
+#middleCell p{
+  color: white;
+}
+
+#rightCell p{
+  color: white;
+  padding-left: 25px; 
+}
+
+#rightCell{
+  text-align: left;
+}
+
+/*Second Row */
+
+.projHead2{
+  background-color: #1f2d41;
+  margin:auto;
+  color:white;
+  padding: 5px;
+  text-align: center;
+}
+
+.projHead2 p{
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 0px;
+}
+
+#leftCell2 p{
+  color: white;
+  padding-right: 38px; 
+}
+
+#leftCell2{
+  text-align: right;
+}
+
+#middleCell2 p{
+  color: white;
+}
+
+#rightCell2 p{
+  color: white;
+  padding-right: 10px;
+}
+
+#rightCell2{
+  text-align: left;
+}
+
+/* */
+
+#img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+/*############*/
+
+#midImage {
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+#middleOne {
+  transition: .5s ease;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+#middleCon:hover #midImage {
+  opacity: 0.3;
+}
+
+#middleCon:hover #middleOne {
+  opacity: 1;
+}
+
+/*******************/
+
+/*PUBLICATION SECTION*/
+
+.publicationSection{
+  background-color: #1f2d41;
+  padding-left:10px ;
+  color: white;
+  margin: 0px;
+}
+
+.publicationSection a{
+  text-decoration: none;
+  color: #9da832;
+}
+
+/*******************/
+
+/*ABOUT SECTION*/
+
+.aboutSection{
+  /*padding-top: 150px;*/
+  margin: 0px;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  background-color: #1f2d41;
+}
+
+.aboutParag{
+  margin: auto;
+  width: 50%;
+  column-gap: 30px;
+  font-size: 18px;
+  column-count: 2;
+  text-align: center;
+}
+
+/******************/
+
+
+/*CONTACT SECTION*/
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+h2.contactSection{
+  padding: 100px;
+  margin: auto;
+  text-align: center;
+  color:white;
+  font-size: 45px;
+  background-color: #1f2d41;
+}
+
+#contactSection {
+  background-color: #1f2d41;
+  padding: 50px;
+  margin:auto;
+  color:white;
+  text-align: center;
+}
+
+.container {
+/*  border-radius: 5px;
+  background-color: #1f2d41;*/
+  margin:auto;
+  width:500px;
+}
+

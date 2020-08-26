@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Display buildings in 3D</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    div.head {
+      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      position: relative;
+      width: 250px;
+      height:10%;
+      top: 10px;
+      left: 10px;
+      padding-top: 5px ;
+      padding-bottom: 5px;
+      background-color: #fff;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    div.body {
+      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      position: relative;
+      width: 250px;
+      height:100px;
+      top: 10px;
+      left: 10px;
+      padding-left: 5px;
+      background-color: #fff;
+      border-radius: 3px;
+    }
+
+    p.one {
+      font-size:1;
+    }
+</style>
+</head>
+<body>
+<div id='map'></div>
+<div class = 'head'> NOZHAN BALAFKAN </div>
+<div class = 'body'>
+<h3 class = "title">Oslo Building Height</h3>
+  <p class = 'one'> Each color represents a different height. Zoom-in to see more buildings.</p>
+</div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoibm96aGFuYiIsImEiOiJjazZseXhqbmgwa2Q1M2hxdDdsMWN4czB0In0.yTbPnXzLA99aCk3VuXUVrA';
+    var map = new mapboxgl.Map({
+        style: 'mapbox://styles/mapbox/dark-v10',
+        center: [10.70912, 59.91921],
+        zoom: 13,
+        pitch: 60,
+        bearing: -17.6,
+        container: 'map',
+        antialias: true
+    });
+
+    // The 'building' layer in the mapbox-streets vector source contains building-height
+    // data from OpenStreetMap.
+    map.on('load', function() {
+        // Insert the layer beneath any symbol layer.
+        var layers = map.getStyle().layers;
+
+        var labelLayerId;
+        for (var i = 0; i < layers.length; i++) {
+            if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                labelLayerId = layers[i].id;
+                break;
+            }
+        }
+        /*
+        map.addLayer(
+            {
+                'id': 'building_color',
+                'source': 'composite',
+                'source-layer': 'building',
+                'filter': ['==', 'extrude', 'true'],
+                'type': 'fill-extrusion',
+                'minzoom': 15,
+                'paint': {
+                    'fill-extrusion-color':
+                    [
+                    'interpolate',
+                    ['linear'],
+                    ['get', 'height'],
+                    0,
+                    'red',
+                    5,
+                    'yellow',
+                    10,
+                    'green',
+                    15,
+                    'cyan',
+                    20,
+                    'azure',
+                    25,
+                    'blue'
+                    ],
+                } // End of paint
+            },
+            labelLayerId
+        ); //End of map.addLayer building color
+        */
+        map.addLayer(
+            {
+                'id': '3d-buildings',
+                'source': 'composite',
+                'source-layer': 'building',
+                'filter': ['==', 'extrude', 'true'],
+                'type': 'fill-extrusion',
+                //'minzoom': 13,
+                'paint': {
+                    //'fill-extrusion-color': '#aaa',
+                    // use an 'interpolate' expression to add a smooth transition effect to the
+                    // buildings as the user zooms in
+                    'fill-extrusion-height': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        13,
+                        0,
+                        13.5,
+                        ['get', 'height']
+                    ],
+                    'fill-extrusion-base': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        13,
+                        0,
+                        13.5,
+                        ['get', 'min_height']
+                    ],
+                    'fill-extrusion-opacity': 0.6,
+                    // Color code buildings based on their height!
+                    'fill-extrusion-color':
+                    [
+                    'interpolate',
+                    ['linear'],
+                    ['get', 'height'],
+                    0,
+                    'red',
+                    5,
+                    'yellow',
+                    10,
+                    'green',
+                    15,
+                    'cyan',
+                    20,
+                    'azure',
+                    25,
+                    'blue'
+                    ]
+                }
+            },
+            labelLayerId
+        );
+    });
+</script>
+
+</body>
+</html>

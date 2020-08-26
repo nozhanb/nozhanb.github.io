@@ -1,186 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8' />
-    <title></title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="styleSheet.css" rel="stylesheet">
 
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
 </head>
 <body>
 
-  <style>
-    div.head {
-      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-      position: relative;
-      width: 250px;
-      height:10%;
-      top: 10px;
-      left: 10px;
-      padding-top: 5px ;
-      padding-bottom: 5px;
-      background-color: #fff;
-      border-radius: 3px;
-      text-align: center;
-    }
+<!-- https://www.w3schools.com/cssref/css3_pr_mediaquery.asp -->
 
-    div.body {
-      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-      position: relative;
-      width: 250px;
-      height:400px;
-      top: 10px;
-      left: 10px;
-      padding-left: 5px;
-      background-color: #fff;
-      border-radius: 3px;
-    }
-
-    p.one {
-      font-size:1;
-    }
-      
-    .slidecontainer {
-      width: 100%; /* Width of the outside container */
-    }
-
-    .slider {
-      -webkit-appearance: none;  /* Override default CSS styles */
-      width: 95%; /* Full-width */
-      height: 25px; /* Specified height */
-      background-image: linear-gradient(to right, red, orange, yellow, lightgreen, cyan, blue); /* Grey background */
-      outline: none; /* Remove outline */
-      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    }
-
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none; /* Override default look */
-      appearance: none;
-      width: 5px; /* Set a specific slider handle width */
-      height: 25px; /* Slider handle height */
-      background: black; /* Green background */
-      cursor: pointer; /* Cursor on hover */
-    }
-
-  </style>
-
-  <div id='map'></div>
-  <div class = 'head'> NOZHAN BALAFKAN </div>
-  <div class = 'body'>
-    <h3 class = "title">Subsidence and rise of ground in Oslo: A Synthetic Aperture Radar (SAR) Persistent Scatterer Interferometry Approach</h3>
-      <p class = 'one'> Each data point shows the level of subsidenece or rise of ground in Oslo over a period of one year (Feb. 2019 to Feb 2020).</p>
-      <div class="slidecontainer">
-        <input type="range" min="-21" max="21" value="0" class="slider" id="myRange">
-        <p>Change (mm): <span id="demo"></span></p>
-      </div>
-      <p class = 'two'> Click on any points to see the level of subsidence or rise (in millimeter). </p>
+<!--
+ HEADER
+  -->
+  <div class = "navigation">
+    <div class = "navigation1">
+      <a href="https://www.linkedin.com/in/nbp/">
+        <!-- <img class = "githubLogo" src="./github.png"> -->
+        <i class="fa fa-linkedin" style="font-size:40px;color:white"></i>
+      </a>
+      <a href="https://github.com/nozhanb">
+        <!-- <img class = "linkedinLogo" src="./linkedin.jpeg"> -->
+        <i class="fa fa-github" style="font-size:40px;color:white"></i>
+      </a>
+    </div>
+    <div class = "navigation2">
+      <li><a href = "./CV_Nozhan_Balafkan.pdf"> RESUME </a></li>
+      <li><a href = #publicationSection> PUBLICATION </a></li>
+      <li><a href = #projectSection> PROJECT </a></li>
+<!--       <li><a href = #aboutSection> ABOUT </a></li>
+      <li><a href = #contactSection> CONTACT </a></li> -->
+    </div>
   </div>
 
 
-  <script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value; // Display the default slider value
+  <div class = "bodyTitle">
+    <!-- <h1> NOZHAN BALAFKAN </h1> -->
+    <div class = "gifContainer">
+      <div class = "colorOverlay"></div>
+      <img src = "slowPolice.gif" alt = "Police car detection using Deep learning (CNN) models.">
+    </div>
+  </div>
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
-  </script>
+  <div class = "rightBlock">
+    <!-- <h5> Original footage by: <a href = "https://www.youtube.com/channel/UC5ZT6BiUmWZwiwpFzmC_U5A">EmergencyScandinavia - ssa0089</a> </h5>  -->
+    <!-- <h5>Rights to this footage is reserved by <a href = "https://www.capgemini.com/no-no/"> Capgemini Norge</a></h5> -->
+    <h5> Footage Credit: <a href = "https://www.capgemini.com/no-no/"> Capgemini Norge</a></h5> <!-- Processed at -->
+  </div>
 
 
-  <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoibm96aGFuYiIsImEiOiJjazZseXhqbmgwa2Q1M2hxdDdsMWN4czB0In0.yTbPnXzLA99aCk3VuXUVrA';
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/dark-v10',
-      center: [10.6160, 59.8995],
-      zoom: 11,
-      pitch: 45,
-      bearing: -17.6
-    });
 
-   // we will add more code here in the next steps
+  <div class = "imgSection">
+    <img class = "myImage" src = "./myImage.jpeg" >
+  </div>
 
-    map.on('load', function() {
 
-      map.addSource('elevation', {
-        type: 'geojson',
-        data: './modified2.geojson'
-      });
+  <div class = "nameSection">
+    <h1 id = "nameHeader"> NOZHAN BALAFKAN </h1>
+    <h2>Data Science - Data Analysis - Scientific Programming</h2>
+    <h3> ___ :: ___ </h3>
+  </div>
 
-      // add circle layer here
+  <div class = "projectSection" id = "projectSection">
+    <h2 class = "projectSection"> PROJECT </h2>
+    <div class = "projTable">
+      <div class = "projRow">
+        <div class = "cell" id = "leftCell">
+          <a href = "osloSar.html">
+            <img class = "imgProj" src = "./osloSar.png" alt = "Interferometry over Oslo using Sentinel-1 SAR data.">
+          </a>
+          <p>Remote Sensing</p>
+        </div>
+        <div class="cell" id = "middleCell">
+          <a target="_blank" href="total.jpg">
+            <img class = "imgProj" id = "midImage" src="./toronto.jpg" alt="Detected car using a deep learning (CNN) model in an area over Toronto.">
+          </a>
+          <p>Object Detection</p>
+        </div>
+        <div class="cell" id = "rightCell">
+          <a href = "osloHeight.html">
+            <img class = "imgProj" id = "carDetection" src="./osloHeight.png" alt="3D building height in Oslo.">
+          </a>
+          <p>3D Visualisation</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      map.addLayer({
-        id: 'elevation_change',
-        type: 'circle',
-        source: 'elevation',
-        minzoom: 10,
-        paint: {
-          'circle-color': [
-              'interpolate',
-              ['linear'],
-              ['get','change'],
-              -21,
-              'red',
-              -14,
-              'orange',
-              -7,
-              'yellow',
-              0,
-              'lightgreen',
-              7,
-              'cyan',
-              14,
-              'azure',
-              21,
-              'blue'
-            //property: 'change',
-            //type: 'exponential',
-            // check the following link for more details on the choice of colors ---> https://stackoverflow.com/questions/7706339/grayscale-to-red-green-blue-matlab-jet-color-scale
-            // the followin color values are hard-coded. I need to use expressions (interpolation, min, max, / and ...) to normalize data and then assing colors to each segments! Leave them like this for now! 
-            /*stops: [
-              [-21, 'red'],      // #FF0000
-              [-14, 'orange'],   // #FF7F00
-              [-7, 'yellow'],    // #FFFF00
-              [0, 'lightgreen'], // #7FFF7F
-              [7, 'cyan'],       // #00FFFF
-              [14, 'azure'],     // #007FFF
-              [21, 'blue']       // #0000FF
-            ]*/
-          ],
-          'circle-radius': 2,
-          'circle-stroke-width': 0
-        }
-      }, 'waterway-label');
 
-      // Once user hovers over points subsidience/rising value of the point will be shown
 
-      map.on('click', 'elevation_change', function(e) {
-        new mapboxgl.Popup()
-          .setLngLat(e.features[0].geometry.coordinates)
-          .setHTML('<b>Change:</b> ' + e.features[0].properties.change + ' mm')
-          .addTo(map);
-      });
+  <div class = projHead2>
+  </div>
+  <div class = projectSection id = "projectSection">
+    <div class = "projTable">
+      <div class = "projRow">
+        <div class="cell" id = "leftCell2">
+          <a target="_blank" href = "./talaWithout.png">
+            <img class = "imgProj" src="./tala56NoCar.png" alt = "An area of the city of Tallahassee/Florida.">
+          </a>
+          <p>Original Image</p>
+        </div>
+        <div class="cell" id = "middleCell2">
+          <a target="_blank" href = "./talaWith.png">
+            <img class = "imgProj" src="./tala56Car.png" alt = "An area of the city of Tallahassee/Florida with detected cars using a deep learning (CNN) model.">
+          </a>
+          <p>Detected Objects</p>
+        </div>
+        <div class="cell" id = "rightCell2">
+          <a href = "tala.html">
+            <img class = "imgProj" id = "carDetection" src="./talaha.png" alt="An interactive map of detected cars in the same area of Tallahassee in Florida.">
+          </a>
+          <p>Mapping Detected Objects</p>
+        </div>
+      </div>
+    </div>
+    <h3> ___ :: ___ </h3>
+  </div>
 
-      // Add zoom and rotation controls to the map.
-      map.addControl(new mapboxgl.NavigationControl());
 
-    }); // This is the end of the on-load function!
 
-  </script>
-</body>
-</html>
+  <div class = "publicationSection" id = "publicationSection">
+    <h3 id = "pubHeader"> PUBLICATION</h3>
+    
+    <h4> - Exploring Correlations between Vehicle Travels and Tropospheric Nitrogen Dioxide (NO2) Density among Florida Counties Impacted by COVID-19 (Under Review)</h4>
+    <ul style="list-style-type:square;">
+      <a href="./covid19-airPollution.pdf"> <!-- DOI: 10.1051/0004-6361/201423810 -->
+        <li> PDF </li>
+      </a>
+    </ul>
+
+    <h4> - Post-Hurricanes Roadway Closure Detection using Satellite Imagery and Semi-Supervised Ensemble Learning (Under Review)</h4>
+    <ul style="list-style-type:square;">
+      <a href="./huricane.pdf">
+        <li> PDF </li>
+      </a>
+    </ul>
+
+    <h4> - A large sample of Kohonen-selected SDSS quasars with weak emission lines: selection effects and statistical properties </h4>
+    <ul style="list-style-type:square;">
+      <a href="https://www.aanda.org/articles/aa/pdf/2014/08/aa23810-14.pdf">
+        <li> PDF </li>
+      </a>
+      <a href = "https://www.aanda.org/articles/aa/abs/2014/08/aa23810-14/aa23810-14.html">
+        <li> LINK </li>
+      </a>
+    </ul>
+    <h3> ___ :: ___ </h3>
+  </div>
+
