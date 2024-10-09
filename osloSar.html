@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+</head>
+<body>
+
+  <style>
+    div.head {
+      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      position: relative;
+      width: 250px;
+      height:10%;
+      top: 10px;
+      left: 10px;
+      padding-top: 5px ;
+      padding-bottom: 5px;
+      background-color: #fff;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    div.body {
+      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      position: relative;
+      width: 250px;
+      height:400px;
+      top: 10px;
+      left: 10px;
+      padding-left: 5px;
+      background-color: #fff;
+      border-radius: 3px;
+    }
+
+    p.one {
+      font-size:1;
+    }
+      
+    .slidecontainer {
+      width: 100%; /* Width of the outside container */
+    }
+
+    .slider {
+      -webkit-appearance: none;  /* Override default CSS styles */
+      width: 95%; /* Full-width */
+      height: 25px; /* Specified height */
+      background-image: linear-gradient(to right, red, orange, yellow, lightgreen, cyan, blue); /* Grey background */
+      outline: none; /* Remove outline */
+      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      width: 5px; /* Set a specific slider handle width */
+      height: 25px; /* Slider handle height */
+      background: black; /* Green background */
+      cursor: pointer; /* Cursor on hover */
+    }
+
+  </style>
+
+  <div id='map'></div>
+  <div class = 'head'> NOZHAN BALAFKAN </div>
+  <div class = 'body'>
+    <h3 class = "title">Subsidence and rise of ground in Oslo: A Synthetic Aperture Radar (SAR) Persistent Scatterer Interferometry Approach</h3>
+      <p class = 'one'> Each data point shows the level of subsidenece or rise of ground in Oslo over a period of one year (Feb. 2019 to Feb 2020).</p>
+      <div class="slidecontainer">
+        <input type="range" min="-21" max="21" value="0" class="slider" id="myRange">
+        <p>Change (mm): <span id="demo"></span></p>
+      </div>
+      <p class = 'two'> Click on any points to see the level of subsidence or rise (in millimeter). </p>
+  </div>
+
+
+  <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+  </script>
+
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoibm96aGFuYiIsImEiOiJjazZseXhqbmgwa2Q1M2hxdDdsMWN4czB0In0.yTbPnXzLA99aCk3VuXUVrA';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/dark-v10',
+      center: [10.6160, 59.8995],
+      zoom: 11,
+      pitch: 45,
+      bearing: -17.6
+    });
+
+   // we will add more code here in the next steps
+
+    map.on('load', function() {
+
+      map.addSource('elevation', {
+        type: 'geojson',
+        data: './modified2.geojson'
+      });
+
+      // add circle layer here
+
+      map.addLayer({
+        id: 'elevation_change',
+        type: 'circle',
+        source: 'elevation',
+        minzoom: 10,
+        paint: {
+          'circle-color': [
+              'interpolate',
+              ['linear'],
+              ['get','change'],
+              -21,
+              'red',
+              -14,
+              'orange',
+              -7,
+              'yellow',
+              0,
+              'lightgreen',
+              7,
+              'cyan',
+              14,
+              'azure',
+              21,
+              'blue'
+            //property: 'change',
+            //type: 'exponential',
+            // check the following link for more details on the choice of colors ---> https://stackoverflow.com/questions/7706339/grayscale-to-red-green-blue-matlab-jet-color-scale
+            // the followin color values are hard-coded. I need to use expressions (interpolation, min, max, / and ...) to normalize data and then assing colors to each segments! Leave them like this for now! 
+            /*stops: [
+              [-21, 'red'],      // #FF0000
+              [-14, 'orange'],   // #FF7F00
+              [-7, 'yellow'],    // #FFFF00
+              [0, 'lightgreen'], // #7FFF7F
+              [7, 'cyan'],       // #00FFFF
+              [14, 'azure'],     // #007FFF
+              [21, 'blue']       // #0000FF
+            ]*/
+          ],
+          'circle-radius': 2,
+          'circle-stroke-width': 0
+        }
+      }, 'waterway-label');
+
+      // Once user hovers over points subsidience/rising value of the point will be shown
+
+      map.on('click', 'elevation_change', function(e) {
+        new mapboxgl.Popup()
+          .setLngLat(e.features[0].geometry.coordinates)
+          .setHTML('<b>Change:</b> ' + e.features[0].properties.change + ' mm')
+          .addTo(map);
+      });
+
+      // Add zoom and rotation controls to the map.
+      map.addControl(new mapboxgl.NavigationControl());
+
+    }); // This is the end of the on-load function!
+
+  </script>
+</body>
+</html>
