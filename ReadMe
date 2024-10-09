@@ -1,6 +1,0 @@
-- The following are some points in case you want to make your website from scratch.
-
-- You can go the a page of interest and right click on the page and choose "Inspect" and "View Page Source".
-- View Page Source will show you the index file of that page!
-- Inspect will show you the overall structure of the page and the structure of the files that were used to build the page along with interactive ability of seeing what component of the code is associated with what part of the page by highlighting that section of the page.
-- Once you open "Inspect" you can navigate to "Sources" and the on the left hand side (in the thumbnail) you can see the structure of the website (i.e. index file, assets, css, fonts, js, etc.). If there is any file in assets that you need you can right-click on the file and select "copy link address" and paste it in the browser to download the file and put it in the right location in you own project. I did this for "academicons.ttf", "fa-brands-400.woff2", and "fa-solid-900.woff2" files and copied them in the "fonts" folder under assets. This way the location, email, github, and other icons appeared on my page.
