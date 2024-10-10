@@ -76,13 +76,13 @@
           </div>
           <div class="author__urls-wrapper">
             <ul class="author__urls social-icons">
-              <li><div style="white-space: normal; margin-bottom: 1em;">Data Scientist at StormGeo</div></li>
-              <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Bergen, Norway</li>
-              <li><a href="mailto:nozhanb@gmail.com"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
-              <li><a href="https://www.linkedin.com/in/nbp/"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
-              <li><a href="https://github.com/nozhanb"><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
-              <li><a href="https://www.youtube.com/shorts/ZK-x-vWFFA4"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i> YouTube</a></li>
-              <li><a href="resume/CV_Nozhan_Balafkan_web.pdf"><i class="ai ai-cv-square ai-fw" aria-hidden="true"></i> Resume</a></li>
+              <li><div style="white-space: normal; margin-bottom: 1em;"> Data Scientist at StormGeo </div></li>
+              <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Bergen, Norway </li>
+              <li><a href="mailto:nozhanb@gmail.com"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email </a></li>
+              <li><a href="https://www.linkedin.com/in/nbp/"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn </a></li>
+              <li><a href="https://github.com/nozhanb"><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github </a></li>
+              <li><a href="https://www.youtube.com/@nozhanbalafkan9591"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i> YouTube </a></li>
+              <li><a href="resume/CV_Nozhan_Balafkan_web.pdf"><i class="ai ai-cv-square ai-fw" aria-hidden="true"></i> Resume </a></li>
             </ul>
           </div>
         </div>
@@ -168,44 +168,44 @@
                 </div>
                 <div class="paper-box-text">
                   <p style="font-size: 24px; font-weight: bold;"> Super-resoultion </p>
-                  <p>A deep-learning-based super-resolution map of a weather front hitting western coast of Norway on January 01, 2021. Low-res <a href = "https://climate.copernicus.eu/what-copernicus-climate-change-services-era5-reanalysis-dataset-and-what-can-it-do-you#:~:text=see%20the%20basics.-,ERA5,-The%20flagship%20C3S" target="_blank"> ERA-5 </a> data with a resolution of \(30 \times 30 \, \text{km}^2\) was used as input. The super-resoultion map has a resolution of \(2.5 \times 2.5 \, \text{km}^2\). The three points on the map show the location of three synoptic weather stations.</p>
+                  <p>A deep-learning-based super-resolution map of a weather front hitting the western coast of Norway on January 1, 2021. Low-res <a href = "https://climate.copernicus.eu/what-copernicus-climate-change-services-era5-reanalysis-dataset-and-what-can-it-do-you#:~:text=see%20the%20basics.-,ERA5,-The%20flagship%20C3S" target="_blank"> ERA-5 </a> data with a resolution of \(30 \times 30 \, \text{km}^2\) was used as input. The super-resoultion map has a resolution of \(2.5 \times 2.5 \, \text{km}^2\). PyTorch was extensively used for the purpose of this project. The three points on the map show the location of three synoptic weather stations.</p>
                   <p style="font-size: 14px; color: gray;">Courtesy of [StormGeo]</p>
                 </div>
               </div>
 
 
                <!-- SAR ANALYSIS -->
-              <div class="paper-box" style="margin-left: 35px;">
+
+               <div class="paper-box" style="margin-left: 35px;">
                 <div class="paper-box-image">
-                  <div>
-                    <div class="badge">Mapbox</div>
-                    <a href="osloSar.html" target="_blank">
-                      <img src="images/osloSar.png" alt="Map of Oslo SAR" width="100%" />
-                    </a>
-                  </div>
+                  <a href="osloSar.html" target="_blank">
+                  <img src="images/osloSar.png" alt="Animated GIF" width="100%" />
+                </a>
                 </div>
                 <div class="paper-box-text">
                   <p style="font-size: 24px; font-weight: bold;"> Synthetic Apperture Radar (SAR) Interferometry </p>
-                    Subsidence and Rise of Ground in Oslo (SAR interferometry map) for a period of one year (2019 - 2020) using <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1" target="_blank"> Sentinel-1</a> data. <br />
+                  <p>Subsidence and rise of Ground in Oslo (SAR interferometry map) for a period of one year (2019 - 2020) using <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1" target="_blank"> Sentinel-1</a> data. The collected Sentinel-1 data were processed using SNAP software. The estimated points of subsidence and rise were extracted using geopandas and pyproj libraries. Finally, MapBox was used to over plot the extracted points on the map of the city of Oslo. </p>
                 </div>
               </div>
 
 
               <!-- TORONTO OBJECT DETECTION -->
+
               <div class="paper-box" style="margin-left: 35px;">
                 <div class="paper-box-image">
                   <a href="images/toronto.jpg" target="_blank">
-                    <img src="images/toronto.jpg" alt="toronto" width="100%" />
-                  </a>
+                  <img src="images/toronto.jpg" alt="Animated GIF" width="100%" />
+                </a>
                 </div>
                 <div class="paper-box-text">
                   <p style="font-size: 24px; font-weight: bold;"> Object Detection </p>
-                  <p> Vehicle detection in a satellite image of an area in the city of Toronto, Canada. Each bounding box shows a detected vehicle.</p>
+                  <p> A proof of concept to estimate the parking space availability and traffic in an area in the city of Toronto, Canada, using deep-learning and high resolution satellite imagery. Each bounding box shows a detected vehicle. Scikit image library was extensively used for image preprocessing and breaking the satellite iamge into tiles for inference and later for stiching it back together.</p>
                 </div>
               </div>
 
 
               <!-- POLICE CAR DETECTION -->
+
               <div class="paper-box" style="margin-left: 35px;">
                 <div class="paper-box-image">
                   <a href="images/slowPolice.gif" target="_blank">
@@ -213,8 +213,8 @@
                 </a>
                 </div>
                 <div class="paper-box-text">
-                  <!-- <p style="font-size: 24px; font-weight: bold;"> Object Detection </p> -->
-                  <!-- <p> Police car detection in an street view movie. The detection was done using <a href = "https://docs.ultralytics.com/" target = "_blank"> YOLO </a>.</p> -->
+                  <p style="font-size: 24px; font-weight: bold;"> </p>
+                  <p> A proof of concept to enhance the safety of motorcycle riders when approached by speeding police cars from behind. The system is based on a lightweight and efficient object detection model along with incorporated onboard cameras and an Nvidia Jetson Nano kit, mounted on an electric motorcycle.</p>
                 </div>
               </div>
 
