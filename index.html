@@ -102,7 +102,7 @@
             <h1 id="-publications"> Publications</h1>
             <ul>
 
-              <li> Modelling the X-ray Light Curve and Stochastic Behaviour of the Hydrogen Column Density in AGNs Using Autoregressive Models and Hamiltonian Monte Carlo: A Simulation-Based Inference Approach. <strong>N. Balafkan</strong>; J. Buchner. <strong style = "color: orangered;"> Work in progress! </strong></li>
+              <li> Modelling the X-ray Light Curve and Stochastic Behaviour of the Hydrogen Column Density in AGNs Using Autoregressive (AR1) Model and Hamiltonian Monte Carlo: A Simulation-Based Inference Approach. <strong>N. Balafkan</strong>; J. Buchner. <strong style = "color: orangered;"> Work in progress! </strong></li>
 
               <!-- <li> XXX YYY ZZZ. <strong>N. Balafkan</strong>; J. B.. <strong style = "color: orangered;"> Work in progress! </strong></li> -->
 
@@ -168,11 +168,46 @@
                 </div>
                 <div class="paper-box-text">
                   <p style="font-size: 24px; font-weight: bold;"> Super-resoultion </p>
-                  <p>This project utilized a deep-learning-based model to generate a super-resolution map of a weather front impacting the western coast of Norway on January 1, 2021. The low-resolution <a href = "https://climate.copernicus.eu/what-copernicus-climate-change-services-era5-reanalysis-dataset-and-what-can-it-do-you#:~:text=see%20the%20basics.-,ERA5,-The%20flagship%20C3S" target="_blank"> ERA-5 </a> dataset, with a \(30 \times 30 \, \text{km}^2\) resolution was fed into the model to produce a high-resolution output with a finer grid of \(2.5 \times 2.5 \, \text{km}^2\). PyTorch served as the core framework for developing and training the super-resolution model. The generated map reveals more detailed atmospheric features, with three highlighted points indicating the positions of synoptic weather stations.</p>
+                  <p>This project utilized a deep-learning-based model to generate a super-resolution map of a weather front impacting the western coast of Norway on January 1, 2021. The low-resolution <a href = "https://climate.copernicus.eu/what-copernicus-climate-change-services-era5-reanalysis-dataset-and-what-can-it-do-you#:~:text=see%20the%20basics.-,ERA5,-The%20flagship%20C3S" target="_blank"> ERA-5 </a> dataset, with a \(30 \times 30 \, \text{km}^2\) resolution was fed into the model to produce a high-resolution output with a finer grid of \(2.5 \times 2.5 \, \text{km}^2\). <strong>PyTorch</strong> served as the core framework for developing and training the super-resolution model. The generated map reveals more detailed atmospheric features, with three highlighted points indicating the positions of synoptic weather stations.</p>
 
                   <p style="font-size: 14px; color: gray;">Courtesy of [StormGeo]</p>
                 </div>
               </div>
+
+
+
+              <!-- Bayesian Inference -->
+
+              <div class="paper-box" style="margin-left: 35px;">
+                <div class="paper-box-image">
+                  <a href="images/bayesian_inference.gif" target="_blank">
+                  <img src="images/bayesian_inference.gif" alt="Animated GIF" width="100%" />
+                </a>
+                </div>
+                <div class="paper-box-text">
+                  <p style="font-size: 24px; font-weight: bold;"> Bayesian Inference </p>
+                  <p>This project employs a Hamiltonian Monte Carlo (HMC) approach to estimate the parameters of an autoregressive AR(1) process. The visualisation shows one specific parameter, the scale factor (&Phi;). The red line represents the true value of the parameter at each time step, while the darker lines depict 2,000 trace samples from the HMC process. For this inference, we utilized the <strong>JAX</strong> library for automatic differentiation and the probabilistic programming framework <strong>NumPyro</strong> to facilitate efficient sampling and parameter estimation.</p>
+
+                </div>
+              </div>
+
+
+
+              <!-- Gaussian Processes -->
+
+              <div class="paper-box" style="margin-left: 35px;">
+                <div class="paper-box-image">
+                  <a href="images/gp_fitting.gif" target="_blank">
+                  <img src="images/gp_fitting.gif" alt="Animated GIF" width="100%" />
+                </a>
+                </div>
+                <div class="paper-box-text">
+                  <p style="font-size: 24px; font-weight: bold;"> Gaussian Processes </p>
+                  <p>Wind speed is a critical atmospheric parameter, and precise forecasting of wind speed can offer substantial advantages across a wide range of applications. The visualization demonstrates the application of Gaussian processes to model the hourly wind speed data recorded over a 72-hour period. For this analysis, the <strong>scikit-learn</strong> library was utilized to facilitate the fitting process..</p>
+
+                </div>
+              </div>
+
 
 
                <!-- SAR ANALYSIS -->
@@ -185,7 +220,7 @@
                 </div>
                 <div class="paper-box-text">
                   <p style="font-size: 24px; font-weight: bold;"> Synthetic Apperture Radar (SAR) Interferometry </p>
-                  <p> The goal of this project was to estimate ground subsidence and rise in the Oslo area, phenomena that pose significant risks to buildings and infrastructure over time. Synthetic Aperture Radar (SAR) interferometry was employed, a precise and advanced technique for monitoring surface changes on Earth. This project utilized <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1" target="_blank"> Sentinel-1</a> satellite data, covering a one-year period from 2019 to 2020. The estimated data points, representing areas of ground movement, were geotagged and visualized using MapBox, providing an intuitive and informative map of subsidence and uplift across Oslo. </p>
+                  <p> The goal of this project was to estimate ground subsidence and rise in the Oslo area, phenomena that pose significant risks to buildings and infrastructure over time. Synthetic Aperture Radar (SAR) interferometry was employed, a precise and advanced technique for monitoring surface changes on Earth. This project utilized <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1" target="_blank"> Sentinel-1</a> satellite data, covering a one-year period from 2019 to 2020. The estimated data points, representing areas of ground movement, were geotagged and visualized using MapBox, providing an intuitive and informative map of subsidence and uplift across Oslo. Click on the image to explore the map.</p>
                 </div>
               </div>
 
@@ -199,8 +234,24 @@
                 </a>
                 </div>
                 <div class="paper-box-text">
-                  <p style="font-size: 24px; font-weight: bold;"> Object Detection </p>
+                  <p style="font-size: 24px; font-weight: bold;"> Object Detection in Satellite Imagery</p>
                   <p> This image showcases a deep-learning-driven system designed to estimate traffic density and parking availability in downtown Toronto, Canada. Each red bounding box marks a detected vehicle, identified using an object detection algorithm. The satellite image was divided into smaller tiles to enhance detection accuracy and enable efficient processing. The model leverages high-resolution satellite imagery to provide insights into urban traffic patterns and parking space occupancy. This proof of concept highlights the potential of AI for smart city applications, enabling better traffic management and infrastructure planning in busy urban areas.</p>
+                </div>
+              </div>
+
+
+              <!-- Exploring the Three-Body Problem -->
+
+              <div class="paper-box" style="margin-left: 35px;">
+                <div class="paper-box-image">
+                    <video width="100%" controls>
+                        <source src="images/threeBodyProblem.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="paper-box-text">
+                    <p style="font-size: 24px; font-weight: bold;">Exploring the Three-Body Problem: A Computational Perspective</p>
+                    <p>This video demonstrates a variation of the three-body problem, where three objects are placed at the vertices of a right triangle. The system is solved numerically using a set of fourth-order Runge-Kutta equations that I wrote in <strong>C++</strong>. At each time step, Newton’s equations of motion are computed, but at one point, the blue and green bodies diverge rapidly. This instability arises from a very small separation between these objects, leading to extreme forces. A potential fix involves setting a minimum distance threshold to prevent such divergences in calculations.</p>
                 </div>
               </div>
 
@@ -214,7 +265,7 @@
                 </a>
                 </div>
                 <div class="paper-box-text">
-                  <p style="font-size: 24px; font-weight: bold;"> </p>
+                  <p style="font-size: 24px; font-weight: bold;"> Object Detection </p>
                   <p> This proof of concept (POC) aimed to improve the safety of motorcycle riders by developing an early warning system for when they are approached by speeding emergency vehicles, such as police cars, ambulances, or fire trucks. High-speed motorcycle riders often struggle to hear sirens on highways, which poses a significant safety risk. The POC involved utilizing a lightweight and efficient object detection system, utilizing onboard cameras and an Nvidia Jetson Nano kit, mounted on an electric motorcycle. The goal was to create an efficient, real-time alert mechanism that could help riders respond quickly to approaching emergency vehicles.</p>
                 </div>
               </div>
@@ -259,6 +310,12 @@
       img.onclick = function(){
         modal.style.display = "block";
         modalImg.src = "images/slowPolice.gif"; // Path to the large image
+        captionText.innerHTML = this.alt; // Set caption (optional)
+      }
+
+      img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = "images/gp_fitting_2.gif"; // Path to the large image
         captionText.innerHTML = this.alt; // Set caption (optional)
       }
 
