@@ -18,7 +18,7 @@
     <meta property="og:description" content="Data Scientist at StormGeo">
     -->
 
-    <meta name="description" content="Nozhan Balafkan – Data Scientist, Physicist, AI Researcher. Welcome to my personal website.">
+    <meta name="description" content="Nozhan Balafkan. Welcome to my personal website.">
     <meta name="robots" content="index, follow">
 
     <!-- end SEO -->
@@ -184,16 +184,17 @@
 
               <div class="paper-box" style="margin-left: 35px;">
                 <div class="paper-box-image">
-                  <a href="images/bayesian_inference.gif" target="_blank">
-                  <img src="images/bayesian_inference.gif" alt="Animated GIF" width="100%" />
-                </a>
+                  <a href="images/fourier_bayesian_time_series.gif" target="_blank">
+                    <img src="images/fourier_bayesian_time_series.gif" alt="Animated GIF" width="100%;" />
+                  </a>
                 </div>
                 <div class="paper-box-text">
-                  <p style="font-size: 24px; font-weight: bold;"> Bayesian Time Series Modelling </p>
-                  <p>This project employs a Hamiltonian Monte Carlo (HMC) approach to estimate the parameters of an autoregressive AR(1) process. The visualisation shows one specific parameter, the scale factor (&Phi;). The red line represents the true value of the parameter at each time step, while the darker lines depict 2,000 trace samples from the HMC process. For this inference, we utilized the <strong>JAX</strong> library for automatic differentiation and the probabilistic programming framework <strong>NumPyro</strong> to facilitate efficient sampling and parameter estimation.</p>
-
+                  <p style="font-size: 24px; font-weight: bold;"> Fourier Analysis and Bayesian Time Series Modelling</p>
+                  <p>This project uses Hamiltonian Monte Carlo (HMC) to estimate the parameters of an autoregressive AR(1) process. The top plot shows the inferred values of the latent state variable (&Phi;) over time. The red line represents the true latent trajectory, while the dark lines depict 2,000 posterior samples obtained from the HMC sampler. To analyze the spectral properties of these samples, we apply the Fourier transform to each one and compute its power spectral density (PSD). The bottom plot shows the resulting PSDs, where each is fit with a power-law model to recover the underlying spectral slope, a key parameter of interest. This inference was performed using <strong>JAX</strong> for automatic differentiation and <strong>NumPyro</strong>, a probabilistic programming framework built on JAX, for efficient sampling and parameter estimation.</p>
                 </div>
               </div>
+
+
 
 
 
